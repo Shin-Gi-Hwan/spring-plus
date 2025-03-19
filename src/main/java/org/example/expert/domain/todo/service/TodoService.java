@@ -73,8 +73,6 @@ public class TodoService {
         Todo todo = todoRepository.findByIdWithUser(todoId)
                 .orElseThrow(() -> new InvalidRequestException("Todo not found"));
 
-        log.info("Todo 존재 여부 확인: {}", todo);
-
         User user = todo.getUser();
 
         return new TodoResponse(
